@@ -1,4 +1,7 @@
 # SpamFiltering
-pip install pandas
-pip install scikit-learn
+
+### Installing packages
+
+pip install pandas 
+pip install scikit-learn 
 pip install requests
