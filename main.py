@@ -55,3 +55,17 @@ new_message = ["Congratulations! You've won a $1,000 gift card. Click here to cl
 new_message_dtm = vect.transform(new_message)
 prediction = nb.predict(new_message_dtm)
 print('Spam' if prediction[0] else 'Not Spam')
+
+# If you have multiple messages, you can classify them all at once:
+new_messages = [
+    "Congratulations! You've won a $1,000 gift card. Click here to claim your prize.",
+    "Hey, are we still meeting for lunch today?",
+    "URGENT! Your account has been compromised. Reply with your password to secure it.",
+    "Don't forget to submit the report by EOD."
+]
+
+new_messages_dtm = vect.transform(new_messages)
+predictions = nb.predict(new_messages_dtm)
+
+for message, label in zip(new_messages, predictions):
+    print(f"Message: {message}\nPrediction: {'Spam' if label else 'Not Spam'}\n")
